@@ -38,10 +38,7 @@ export function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="flex flex-col items-center gap-1">
           <CardTitle className="text-primary flex items-center justify-center gap-2 text-center text-2xl">
-            Gakucha
-            <span className="text-2xl" role="img" aria-label="dumbbell">
-              🏋️
-            </span>
+            Your app name...
           </CardTitle>
         </CardHeader>
         <CardContent>

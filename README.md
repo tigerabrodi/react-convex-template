@@ -28,6 +28,7 @@ How I do it after fork/clone + `pnpm install`:
 3. Deploy to Vercel + read [deploy to vercel](https://docs.convex.dev/production/hosting/vercel#deploying-to-vercel)
 4. `npx @convex-dev/auth`
 5. Run locally and make sure auth works for dev.
+6. `npx @convex-dev/auth --prod`
 
 # Convetions I enjoy
 
@@ -50,4 +51,4 @@ You can see my lint config + prettier of what I prefer I guess, generally a fan 
 - index.css file for the theme -> just ask ai to do it for you i guess
 - index.html file for all meta tags
 - package.json name license, etc.
--
+- See login form `src/pages/login/index.tsx` + add your name.

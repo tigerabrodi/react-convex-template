@@ -19,6 +19,16 @@ Generally, I like using most of what Vercel has to offer, it's usually enough fo
 
 You can build anything almost, including multiplayer games.
 
+# How to get started + deploy
+
+How I do it after fork/clone + `pnpm install`:
+
+1. `npx convex dev` (you need to be logged into convex in your browser)
+2. Push to a repo
+3. Deploy to Vercel + read [deploy to vercel](https://docs.convex.dev/production/hosting/vercel#deploying-to-vercel)
+4. `npx @convex-dev/auth`
+5. Run locally and make sure auth works for dev.
+
 # Convetions I enjoy
 
 `handlePromise` for dealing with promises over try/catch.

@@ -48,7 +48,7 @@ export function InputWithFeedback({
         </p>
       )}
       {!isError && helperText && (
-        <p className="text-muted-foreground absolute -bottom-6 text-xs">
+        <p className="text-muted-foreground absolute -bottom-[22px] left-0.5 text-xs">
           {helperText}
         </p>
       )}

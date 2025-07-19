@@ -118,7 +118,12 @@ export function RegisterForm() {
           placeholder="********"
         />
       </div>
-      <Button type="submit" isLoading={isPending} disabled={isPending}>
+      <Button
+        type="submit"
+        isLoading={isPending}
+        disabled={isPending}
+        className="mt-2"
+      >
         Register
       </Button>
     </form>

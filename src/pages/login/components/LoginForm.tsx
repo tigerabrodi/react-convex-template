@@ -66,7 +66,12 @@ export function LoginForm() {
           placeholder="********"
         />
       </div>
-      <Button type="submit" isLoading={isPending} disabled={isPending}>
+      <Button
+        type="submit"
+        isLoading={isPending}
+        disabled={isPending}
+        className="mt-2"
+      >
         Login
       </Button>
     </form>

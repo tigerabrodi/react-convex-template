@@ -4,7 +4,7 @@ import { getAuthUserId } from '@convex-dev/auth/server'
 import { ConvexError, v } from 'convex/values'
 import crypto from 'crypto'
 import { api, internal } from '../_generated/api'
-import { Doc } from '../_generated/dataModel'
+import type { Doc } from '../_generated/dataModel'
 import { action } from '../_generated/server'
 import { handlePromise } from '../utils'
 

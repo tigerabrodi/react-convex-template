@@ -11,6 +11,11 @@ export default defineSchema({
   users: defineTable({
     email: v.string(),
     updatedAt: v.number(),
+    apiKey: v.optional(
+      v.object({
+        encryptedKey: v.array(v.number()), // For encrypted API key storage
+        initializationVector: v.array(v.number()), // IV for encryption
+      })
+    ),
   }).index('by_email', ['email']),
-
 })

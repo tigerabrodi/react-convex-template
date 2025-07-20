@@ -26,6 +26,7 @@
     "clsx": "^2.1.1",
     "convex": "^1.25.4",
     "lucide-react": "^0.525.0",
+    "motion": "^12.23.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.3",

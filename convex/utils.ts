@@ -1,5 +1,3 @@
-import { CustomConvexError } from './error'
-
 /**
  * Utility function to handle promises and return [error, result] tuple
  */
@@ -10,9 +8,6 @@ export async function handlePromise<PromiseResult>(
     const result = await promise
     return [null, result]
   } catch (error) {
-    return [
-      error instanceof CustomConvexError ? error : new Error(String(error)),
-      null,
-    ]
+    return [error instanceof Error ? error : new Error(String(error)), null]
   }
 }

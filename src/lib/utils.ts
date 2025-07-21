@@ -1,5 +1,5 @@
-import { CustomConvexError } from '@convex/error'
 import { clsx, type ClassValue } from 'clsx'
+import { ConvexError } from 'convex/values'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: Array<ClassValue>) {
@@ -13,6 +13,20 @@ export async function handlePromise<PromiseResult>(
     const result = await promise
     return [null, result]
   } catch (error) {
-    return [error instanceof CustomConvexError ? error : new Error(String(error)), null]
+    return [error instanceof Error ? error : new Error(String(error)), null]
   }
+}
+
+export function getErrorMessage({
+  error,
+  fallbackText,
+}: {
+  error: Error
+  fallbackText?: string
+}): string {
+  if (error instanceof ConvexError) {
+    return error.data as string
+  }
+
+  return fallbackText ?? error.message
 }

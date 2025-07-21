@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
+import { Toaster } from './components/ui/sonner'
 import { AuthenticatedLayout } from './layouts/authenticated'
 import { ROUTES } from './lib/constants'
 import { HomePage } from './pages/home'
@@ -13,6 +14,7 @@ export function App() {
           <Route path={ROUTES.home} element={<HomePage />} />
         </Route>
       </Routes>
+      <Toaster />
     </BrowserRouter>
   )
 }

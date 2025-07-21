@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config({
@@ -12,7 +13,21 @@ export default tseslint.config({
     },
   },
   extends: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
+  plugins: {
+    import: importPlugin,
+  },
   rules: {
+    'import/order': [
+      'warn',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
     'no-await-in-loop': 'error',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/naming-convention': [

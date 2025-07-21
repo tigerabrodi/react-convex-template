@@ -1,9 +1,10 @@
-import { ROUTES } from '@/lib/constants'
 import { api } from '@convex/_generated/api'
 import { useConvexAuth, useQuery } from 'convex/react'
 import { Loader2 } from 'lucide-react'
 import { useEffect } from 'react'
 import { generatePath, Outlet, useNavigate } from 'react-router'
+
+import { ROUTES } from '@/lib/constants'
 
 export function AuthenticatedLayout() {
   const user = useQuery(api.users.queries.getCurrentUser)

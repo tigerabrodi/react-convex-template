@@ -1,5 +1,6 @@
 import { Password } from '@convex-dev/auth/providers/Password'
 import { convexAuth } from '@convex-dev/auth/server'
+
 import type { DataModel } from './_generated/dataModel'
 import type { MutationCtx } from './_generated/server'
 

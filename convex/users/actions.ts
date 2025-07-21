@@ -1,8 +1,10 @@
 'use node'
 
+import crypto from 'crypto'
+
 import { getAuthUserId } from '@convex-dev/auth/server'
 import { ConvexError, v } from 'convex/values'
-import crypto from 'crypto'
+
 import { api, internal } from '../_generated/api'
 import type { Doc } from '../_generated/dataModel'
 import { action } from '../_generated/server'
@@ -18,10 +20,7 @@ async function getEncryptionKey() {
   const keyMaterial = encoder.encode(process.env.CONVEX_ENCRYPTION_SECRET)
   const hash = await crypto.subtle.digest('SHA-256', keyMaterial)
 
-  return await crypto.subtle.importKey('raw', hash, ALGORITHM, false, [
-    'encrypt',
-    'decrypt',
-  ])
+  return await crypto.subtle.importKey('raw', hash, ALGORITHM, false, ['encrypt', 'decrypt'])
 }
 
 /**

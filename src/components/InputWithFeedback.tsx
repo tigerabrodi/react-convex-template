@@ -1,7 +1,8 @@
-import { Input } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
 import type { ComponentProps, ReactNode } from 'react'
+
+import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 
 type InputWithFeedbackProps = ComponentProps<typeof Input> & {
   errorMessage?: string
@@ -36,17 +37,11 @@ export function InputWithFeedback({
         )}
 
         {!isLoading && trailingElement && (
-          <div className="absolute top-1/2 right-2 -translate-y-1/2">
-            {trailingElement}
-          </div>
+          <div className="absolute top-1/2 right-2 -translate-y-1/2">{trailingElement}</div>
         )}
       </div>
 
-      {isError && (
-        <p className="absolute -bottom-6 text-xs text-red-500">
-          {errorMessage}
-        </p>
-      )}
+      {isError && <p className="absolute -bottom-6 text-xs text-red-500">{errorMessage}</p>}
       {!isError && helperText && (
         <p className="text-muted-foreground absolute -bottom-[22px] left-0.5 text-xs">
           {helperText}

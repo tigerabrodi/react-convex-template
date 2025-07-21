@@ -1,12 +1,13 @@
-import { InputWithFeedback } from '@/components/InputWithFeedback'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { handlePromise } from '@/lib/utils'
 import { useAuthActions } from '@convex-dev/auth/react'
 import { api } from '@convex/_generated/api'
 import { useConvex } from 'convex/react'
 import { useActionState } from 'react'
 import { toast } from 'sonner'
+
+import { InputWithFeedback } from '@/components/InputWithFeedback'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { handlePromise } from '@/lib/utils'
 
 const CONVEX_AUTH_SIGN_UP_KEY = 'signUp'
 
@@ -54,8 +55,7 @@ export function RegisterForm() {
       )
 
       if (existingUserError) {
-        errors.email =
-          'Something went wrong during registration. Please try later.'
+        errors.email = 'Something went wrong during registration. Please try later.'
         return { status: 'error', errors }
       }
 
@@ -67,8 +67,7 @@ export function RegisterForm() {
       const [error] = await handlePromise(signIn('password', formData))
 
       if (error) {
-        errors.email =
-          'Something went wrong during registration. Please try later.'
+        errors.email = 'Something went wrong during registration. Please try later.'
         return { status: 'error', errors }
       }
 
@@ -118,12 +117,7 @@ export function RegisterForm() {
           placeholder="********"
         />
       </div>
-      <Button
-        type="submit"
-        isLoading={isPending}
-        disabled={isPending}
-        className="mt-2"
-      >
+      <Button type="submit" isLoading={isPending} disabled={isPending} className="mt-2">
         Register
       </Button>
     </form>

@@ -1,18 +1,20 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ROUTES, TAB_VALUES } from '@/lib/constants'
 import { api } from '@convex/_generated/api'
 import { useConvexAuth, useQuery } from 'convex/react'
 import { Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { generatePath, useNavigate } from 'react-router'
+
 import { LoginForm } from './components/LoginForm'
 import { RegisterForm } from './components/RegisterForm'
 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { ROUTES, TAB_VALUES } from '@/lib/constants'
+
 export function LoginPage() {
-  const [tab, setTab] = useState<
-    typeof TAB_VALUES.LOGIN | typeof TAB_VALUES.REGISTER
-  >(TAB_VALUES.LOGIN)
+  const [tab, setTab] = useState<typeof TAB_VALUES.LOGIN | typeof TAB_VALUES.REGISTER>(
+    TAB_VALUES.LOGIN
+  )
 
   const user = useQuery(api.users.queries.getCurrentUser)
   const state = useConvexAuth()
@@ -44,9 +46,7 @@ export function LoginPage() {
         <CardContent>
           <Tabs
             value={tab}
-            onValueChange={(value) =>
-              setTab(value as (typeof TAB_VALUES)[keyof typeof TAB_VALUES])
-            }
+            onValueChange={(value) => setTab(value as (typeof TAB_VALUES)[keyof typeof TAB_VALUES])}
             className="w-full"
           >
             <TabsList className="grid w-full grid-cols-2">

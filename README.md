@@ -26,6 +26,11 @@ How I do it after fork/clone + `pnpm install`:
 1. `npx convex dev` (you need to be logged into convex in your browser)
 2. Push to a repo
 3. Deploy to Vercel + read [deploy to vercel](https://docs.convex.dev/production/hosting/vercel#deploying-to-vercel)
+   1. Generate deploy key in Convex.
+   2. Create new vercel project.
+   3. Override build command with `npx convex deploy --cmd 'npm run build'`.
+   4. Setup CONVEX_DEPLOY_KEY environment variable with the deploy key you generated in Convex.
+   5. Deploy.
 4. `npx @convex-dev/auth`
 5. Run locally and make sure auth works for dev.
 6. `npx @convex-dev/auth --prod`

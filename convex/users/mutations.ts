@@ -1,7 +1,8 @@
 import { getAuthUserId } from '@convex-dev/auth/server'
-import { ConvexError, v } from 'convex/values'
+import { v } from 'convex/values'
 
 import { mutation } from '../_generated/server'
+import { sharedErrors } from '../errors'
 
 /**
  * Update user data
@@ -21,12 +22,7 @@ export const updateUser = mutation({
   handler: async (ctx, args) => {
     const userId = await getAuthUserId(ctx)
     if (!userId) {
-      throw new ConvexError('Not authenticated')
-    }
-
-    // Ensure user can only update their own data
-    if (userId !== args.userId) {
-      throw new ConvexError('Not authorized')
+      throw sharedErrors.USER_NOT_AUTHENTICATED
     }
 
     return await ctx.db.patch(args.userId, {

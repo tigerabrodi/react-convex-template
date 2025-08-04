@@ -26,5 +26,5 @@ export function AuthenticatedLayout() {
     )
   }
 
-  return <Outlet />
+  return <Outlet context={{ currentUser: user }} />
 }
